@@ -14,6 +14,7 @@ public:
 	virtual void buttonUpClicked();
 	virtual void buttonDownClicked();
 protected:
+    int counter;
 };
 
 #endif // MAINVIEW_HPP
