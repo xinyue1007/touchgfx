@@ -3,28 +3,58 @@
 /*********************************************************************************/
 #include <gui_generated/mainscreen_screen/MainScreenViewBase.hpp>
 #include <touchgfx/Color.hpp>
+#include "BitmapDatabase.hpp"
 
-MainScreenViewBase::MainScreenViewBase()
+MainScreenViewBase::MainScreenViewBase() :
+    updateItemCallback(this, &MainScreenViewBase::updateItemCallbackHandler)
 {
 
-    __background.setPosition(0, 0, 480, 272);
+    __background.setPosition(0, 0, 800, 480);
     __background.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
 
-    menuElement1.setXY(65, 0);
+    box1.setPosition(0, 0, 800, 480);
+    box1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
 
-    menuElement2.setXY(0, 70);
+    background.setXY(205, 45);
+    background.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_ID));
 
-    menuElement3.setXY(65, 140);
+    scrollWheel1.setPosition(208, 45, 390, 390);
+    scrollWheel1.setHorizontal(false);
+    scrollWheel1.setCircular(false);
+    scrollWheel1.setEasingEquation(touchgfx::EasingEquations::backEaseOut);
+    scrollWheel1.setSwipeAcceleration(10);
+    scrollWheel1.setDragAcceleration(10);
+    scrollWheel1.setNumberOfItems(20);
+    scrollWheel1.setSelectedItemOffset(160);
+    scrollWheel1.setDrawableSize(70, 0);
+    scrollWheel1.setDrawables(scrollWheel1ListItems, updateItemCallback);
+    scrollWheel1.animateToItem(0, 0);
+
+    overlay.setXY(0, 0);
+    overlay.setBitmap(touchgfx::Bitmap(BITMAP_OVERLAY_ID));
 
     add(__background);
-    add(menuElement1);
-    add(menuElement2);
-    add(menuElement3);
+    add(box1);
+    add(background);
+    add(scrollWheel1);
+    add(overlay);
 }
 
 void MainScreenViewBase::setupScreen()
 {
-    menuElement1.initialize();
-    menuElement2.initialize();
-    menuElement3.initialize();
+    scrollWheel1.initialize();
+    for (int i = 0; i < scrollWheel1ListItems.getNumberOfDrawables(); i++)
+    {
+        scrollWheel1ListItems[i].initialize();
+    }
+}
+
+void MainScreenViewBase::updateItemCallbackHandler(touchgfx::DrawableListItemsInterface* items, int16_t containerIndex, int16_t itemIndex)
+{
+    if (items == &scrollWheel1ListItems)
+    {
+        touchgfx::Drawable* d = items->getDrawable(containerIndex);
+        MenuElement* cc = (MenuElement*)d;
+        scrollWheel1UpdateItem(*cc, itemIndex);
+    }
 }

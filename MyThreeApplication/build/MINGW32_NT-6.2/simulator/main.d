@@ -73,9 +73,14 @@ build/MINGW32_NT-6.2/simulator/main.o: simulator/main.cpp \
  touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
  touchgfx/framework/include/touchgfx/widgets/Button.hpp \
  touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
+ touchgfx/framework/include/touchgfx/widgets/Image.hpp \
+ touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheel.hpp \
+ touchgfx/framework/include/touchgfx/containers/scrollers/DrawableList.hpp \
+ touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheelBase.hpp \
+ touchgfx/framework/include/touchgfx/containers/scrollers/ScrollBase.hpp \
+ touchgfx/framework/include/touchgfx/EasingEquations.hpp \
  gui/include/gui/containers/MenuElement.hpp \
  generated/gui_generated/include/gui_generated/containers/MenuElementBase.hpp \
- touchgfx/framework/include/touchgfx/widgets/Image.hpp \
  touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
  touchgfx/framework/include/touchgfx/widgets/TextArea.hpp \
  generated/gui_generated/include/gui_generated/common/SimConstants.hpp \
@@ -230,11 +235,21 @@ touchgfx/framework/include/touchgfx/widgets/Button.hpp:
 
 touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
 
+touchgfx/framework/include/touchgfx/widgets/Image.hpp:
+
+touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheel.hpp:
+
+touchgfx/framework/include/touchgfx/containers/scrollers/DrawableList.hpp:
+
+touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheelBase.hpp:
+
+touchgfx/framework/include/touchgfx/containers/scrollers/ScrollBase.hpp:
+
+touchgfx/framework/include/touchgfx/EasingEquations.hpp:
+
 gui/include/gui/containers/MenuElement.hpp:
 
 generated/gui_generated/include/gui_generated/containers/MenuElementBase.hpp:
-
-touchgfx/framework/include/touchgfx/widgets/Image.hpp:
 
 touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
 

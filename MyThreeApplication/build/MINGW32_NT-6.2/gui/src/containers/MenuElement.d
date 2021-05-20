@@ -47,7 +47,8 @@ build/MINGW32_NT-6.2/gui/src/containers/MenuElement.o: \
  touchgfx/framework/include/touchgfx/widgets/TextArea.hpp \
  touchgfx/framework/include/touchgfx/FontManager.hpp \
  touchgfx/framework/include/touchgfx/TypedText.hpp \
- touchgfx/framework/include/touchgfx/Texts.hpp
+ touchgfx/framework/include/touchgfx/Texts.hpp \
+ generated/images/include/BitmapDatabase.hpp
 
 gui/include/gui/containers/MenuElement.hpp:
 
@@ -144,3 +145,5 @@ touchgfx/framework/include/touchgfx/FontManager.hpp:
 touchgfx/framework/include/touchgfx/TypedText.hpp:
 
 touchgfx/framework/include/touchgfx/Texts.hpp:
+
+generated/images/include/BitmapDatabase.hpp:
