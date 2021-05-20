@@ -1,0 +1,226 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Components": [
+          {
+            "Type": "Box",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Alpha": 255,
+            "Name": "background",
+            "X": 0,
+            "Y": 0,
+            "Width": 480,
+            "Height": 272,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Type": "Button",
+            "Pressed": "__designer\\Blue_Buttons_Round_Edge_small_pressed.png",
+            "Released": "__designer\\Blue_Buttons_Round_Edge_small.png",
+            "Alpha": 255,
+            "Style": "Style4",
+            "Name": "button",
+            "X": 155,
+            "Y": 179,
+            "Width": 170,
+            "Height": 60,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "CustomContainerDefinitionName": "ColorEmitter",
+            "Type": "CustomContainerInstance",
+            "Name": "colorEmitter1",
+            "X": 0,
+            "Y": 0,
+            "Width": 240,
+            "Height": 110,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "Type": "TriggerWhen",
+              "ActionCustomTypeName": "Call Screen1 setBackgroundColor"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include <stdlib.h>",
+              "Code": "background.setColor(value);\r\nbackground.invalidate();"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "button"
+            },
+            "Action": {
+              "Type": "ActionCustom2",
+              "ActionCustomTypeName": "Call Screen1 setBackgroundColor",
+              "ParameterValue": "touchgfx::Color::getColorFrom24BitRGB(rand()%256,rand()%256,rand()%256)",
+              "ActionComponent": "Screen1"
+            }
+          },
+          {
+            "InteractionName": "Interaction3",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "Type": "TriggerCustom",
+              "TriggerCustomTypeName": "ColorEmitter colorChanged happens",
+              "TriggerComponent": "colorEmitter1"
+            },
+            "Action": {
+              "Type": "ActionCustom2",
+              "ActionCustomTypeName": "Call Screen1 setBackgroundColor",
+              "ParameterValue": "value",
+              "ActionComponent": "Screen1"
+            }
+          }
+        ],
+        "CustomActions": [
+          {
+            "Name": "setBackgroundColor",
+            "Description": "set background color",
+            "HasValue": true,
+            "ValueType": "colortype"
+          }
+        ],
+        "Name": "Screen1",
+        "OverrideDefaultBufferSize": false,
+        "CanvasBufferSize": 0
+      }
+    ],
+    "CustomContainerDefinitions": [
+      {
+        "Components": [
+          {
+            "Type": "Button",
+            "Pressed": "__designer\\Blue_Buttons_Round_Edge_small_pressed.png",
+            "Released": "__designer\\Blue_Buttons_Round_Edge_small.png",
+            "Alpha": 255,
+            "Style": "Style4",
+            "Name": "button1",
+            "X": 35,
+            "Y": 43,
+            "Width": 170,
+            "Height": 60,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "button1"
+            },
+            "Action": {
+              "Type": "ActionEmit",
+              "TriggerCustomTypeName": "ColorEmitter colorChanged happens",
+              "ParameterValue": "touchgfx::Color::getColorFrom24BitRGB(rand()%256,rand()%256,rand()%256)"
+            }
+          }
+        ],
+        "CustomTriggers": [
+          {
+            "Name": "colorChanged",
+            "Description": "The color has changed",
+            "HasValue": true,
+            "ValueType": "colortype"
+          }
+        ],
+        "Name": "ColorEmitter",
+        "X": 0,
+        "Y": 0,
+        "Width": 240,
+        "Height": 110,
+        "Includes": "#include <touchgfx/Color.hpp>"
+      }
+    ],
+    "Name": "MyFiveApplication",
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "Screen1",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "touchgfx",
+    "UIPath": ".",
+    "ApplicationTemplateName": "Simulator",
+    "ApplicationTemplateVersion": "2.0.0",
+    "ApplicationTemplateDescription": "Simulator Application Template",
+    "AvailableColorDepths": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      24
+    ],
+    "AvailableLCDs": {
+      "1": "LCD1bpp",
+      "2": "LCD2bpp",
+      "4": "LCD4bpp",
+      "8": "LCD8bpp_ARGB2222",
+      "16": "LCD16bpp",
+      "24": "LCD24bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommand": "",
+    "FlashTargetCommand": "",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape"
+  },
+  "Version": "4.16.1",
+  "CreatedBy": "4.16.1"
+}
